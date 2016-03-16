@@ -1,0 +1,38 @@
+<h1>新建任务</h1>
+
+<%= form_for(@duty)  do |f| %>
+  <% if @duty.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@duty.errors.count, "error") %> prohibited this duty from being saved:</h2>
+
+      <ul>
+      <% @duty.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.file_field :avatar %>
+  <div class="field">
+    <%= f.label :项目名称 %><br>
+    <%= f.text_field :project_name ,:value => session[:project_name],:readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :项目组长 %><br>
+    <%= f.text_field :project_leader, :value => session[:project_leader],:readonly => true %>
+  </div>
+
+
+  <div class="controls">
+    <%= f.label :流程 %><br>
+    <%= f.select :flow,[['项目现场实施前与客户做前期沟通，掌握信息'],['到达会场当天，召开第一次项目工作会议'],['演练前1-N天，完成设备布置和安装调试'],['演练当天，完成以下工作'],['第一次正式表决前，召开第二次项目工作会议'],['正式表决当天，完成以下工作'],['会议结束当天，完成以下工作']],:include_blank=>false %>
+  </div>
+
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to '返回', duties_path %>

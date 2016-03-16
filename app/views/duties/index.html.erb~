@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>所有任务</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>流程</th>
+      <th>具体内容</th>
+      <th>要点</th>
+      <th>照片</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @duties.each do |duty| %>
+      <tr>
+        <td><%= duty.flow %></td>
+        <td><%= duty.conteng %></td>
+        <td><%= duty.mainpoint %></td>
+        <% if duty.avatar_file_name != nil%>
+	<td><%= image_tag duty.avatar.url(:thumb) %></td>
+<% else %>
+<td>请上传</td>
+<% end %>
+        <td><%= link_to '显示', duty %></td>
+        <td><%= link_to '编辑', edit_duty_path(duty) %></td>
+        <td><%= link_to '删除', duty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新建任务', new_duty_path %>

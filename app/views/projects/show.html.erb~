@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project name:</strong>
+  <%= @project.project_name %>
+</p>
+
+<p>
+  <strong>Project leader:</strong>
+  <%= @project.project_leader %>
+</p>
+<p>
+<%= link_to '项目任务制定', duties_path %>
+</p>
+<p>
+<%= link_to '编辑', edit_project_path(@project) %> |
+<%= link_to '返回', projects_path %>
+</p>

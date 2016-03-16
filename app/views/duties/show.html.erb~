@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>流程:</strong>
+  <%= @duty.flow %>
+</p>
+
+<p>
+  <strong>具体内容:</strong>
+  <%= @duty.conteng %>
+</p>
+
+<p>
+  <strong>要点:</strong>
+  <%= @duty.mainpoint %>
+</p>
+
+<p>
+<strong>Image:</strong>
+ <%= image_tag @duty.avatar.url(:thumb) %>
+</p> 
+
+<%= link_to 'Edit', edit_duty_path(@duty) %> |
+<%= link_to 'Back', duties_path %>

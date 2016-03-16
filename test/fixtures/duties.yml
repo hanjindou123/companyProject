@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  flow: MyString
+  conteng: MyString
+  mainpoint: MyString
+
+two:
+  flow: MyString
+  conteng: MyString
+  mainpoint: MyString
