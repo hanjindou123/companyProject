@@ -25,35 +25,39 @@ class DutiesController < ApplicationController
   def edit
   end
 
-  # POST /duties
-  # POST /duties.json
+
   def create
     @duty = Duty.new(duty_params)
-    @duty.conteng = session[:conteng]
-    @duty.mainpoint = session[:mainpoint]
+   # @duty.conteng = session[:conteng]
+   # @duty.mainpoint = session[:mainpoint]
     @duty.flow = session[:flow]
     respond_to do |format|
       if @duty.save
-        format.html { render :new2new, notice: 'Duty was successfully created.' }
+        format.html { redirect_to @duty, notice: 'Duty was successfully created.' }
         format.json { render :show, status: :created, location: @duty }
       else
         format.html { render :new }
         format.json { render json: @duty.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
-  def new2newcreate
-    @duty = Duty.new(duty_params)
-    
-    session[:conteng] = @duty.conteng
-    session[:mainpoint] = @duty.mainpoint
-    session[:flow] = @duty.flow
-    render :duties_new2new
-    
-  end
+
+  # POST /duties
+  # POST /duties.json
 
   
+
+  def new2newGo
+    @duty = Duty.new(duty_params)
+    
+    #session[:conteng] = @duty.conteng
+    #session[:mainpoint] = @duty.mainpoint
+    session[:flow] = @duty.flow
+    render :new2new
+  end
+
 
 
 

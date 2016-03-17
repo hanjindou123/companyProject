@@ -1,6 +1,6 @@
 <h1>新建任务</h1>
 
-<%= form_for(@duty)  do |f| %>
+<%= form_for(@duty,:url=>{:action=>'new2newGo'})  do |f| %>
   <% if @duty.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@duty.errors.count, "error") %> prohibited this duty from being saved:</h2>
@@ -13,7 +13,7 @@
     </div>
   <% end %>
 
-<%= f.file_field :avatar %>
+
   <div class="field">
     <%= f.label :项目名称 %><br>
     <%= f.text_field :project_name ,:value => session[:project_name],:readonly => true %>
@@ -31,7 +31,7 @@
   </div>
 
    <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '下一步'%>
   </div>
 <% end %>
 

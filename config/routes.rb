@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-
-  post '/duties/new',to:'duties#new2newcreate'
+  resources :projects
+  resources :duties
+  
+  post '/duties/new',to:'duties#new2newGo'
   
   get '/duties/new2new',to:'duties#new2new'
   post '/duties/new2new',to:'duties#create'
 
-  resources :projects
-  resources :duties
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

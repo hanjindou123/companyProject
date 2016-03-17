@@ -15,16 +15,23 @@
 
 <div class="field">
     <%= f.label :具体内容 %><br>
-    <% = if session[:flow] == '会议结束当天，完成以下工作'%>
-    <%= f.select :conteng,[['签到方式'],['会期安排'],['表决器数量'],['显示系统配置信息'],['安排项目经理助理以及机房组、表决器组组长和成员'],['通知大会日程和设备进场时间、调试时间、演练时间、表决时间。']] %>
+    <% if session[:flow] == '项目现场实施前与客户做前期沟通，掌握信息'%>
+    	 <%= f.select :conteng,[['签到方式'],['会期安排'],['表决器数量'],['显示系统配置信息']] %>
+    <% end %>
+    <% if session[:flow] == '会议结束当天，完成以下工作'%>
+    <%= f.select :conteng,[['将《满意度调查表》和《项目验收证明》签字盖章'],['回收《大会日程》、《大会主持词》、表决结果等纸质文档和电子文档'],['组织、安排全体成员将设备装箱和发货']] %>
     <% end %>
   </div>
   <div class="field">
     <%= f.label :要点 %><br>
     <%= f.text_field :mainpoint %>
   </div>
+
+<%= f.label :上传图片 %><br>
+<%= f.file_field :avatar %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '创建' %>
   </div>
 <% end %>
 
